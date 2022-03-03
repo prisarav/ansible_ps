@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Create and attach ebs vol
+      ec2_vol:
+        access_key: "{{ AccessKey }}"
+        secret_key: "{{ SecretKey }}"
+        instance: i-0a6931f15e55c4e82
+        region: us-east-1
+        volume_size: 1
+        device_name: sdf
+        delete_on_termination: yes
+
+    - name: Create snapshot
+      ec2_snapshot:
+        access_key: "{{ AccessKey }}"
+        secret_key: "{{ SecretKey }}"
+        instance_id: i-0a6931f15e55c4e82
+        region: us-east-1
+        device_name: sdf
