@@ -8,4 +8,5 @@
         access_key: "{{ AccessKey }}"
         secret_key: "{{ SecretKey }}"
         instance_ids: i-012b32314808d4d25
+        region: us-east-1
         state: absent
